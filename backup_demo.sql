@@ -5,7 +5,7 @@
 -- Dumped from database version 12.2
 -- Dumped by pg_dump version 12.2
 
--- Started on 2022-03-12 23:41:03
+-- Started on 2022-03-13 02:51:09
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -366,6 +366,7 @@ INSERT INTO public.catalogos (catalogoid, tipo, nombre, estado) VALUES (12, 2, '
 INSERT INTO public.compras (compraid, productoid, proveedor, cantidad, fecharegistro, preciounitario, preciototal) VALUES (5, '3', 'Corporacion Favorita', 12, '2022-03-12', 5.00, 60.00);
 INSERT INTO public.compras (compraid, productoid, proveedor, cantidad, fecharegistro, preciounitario, preciototal) VALUES (6, '5', 'Comics Store S.A', 3, '2022-03-12', 25.50, 76.50);
 INSERT INTO public.compras (compraid, productoid, proveedor, cantidad, fecharegistro, preciounitario, preciototal) VALUES (7, '3', 'Comics Store S.A', 24, '2022-03-12', 5.75, 138.00);
+INSERT INTO public.compras (compraid, productoid, proveedor, cantidad, fecharegistro, preciounitario, preciototal) VALUES (8, '9', 'Corporacion Favorita', 15, '2022-03-13', 12.00, 180.00);
 
 
 --
@@ -375,7 +376,6 @@ INSERT INTO public.compras (compraid, productoid, proveedor, cantidad, fecharegi
 --
 
 INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (6, 'vb05', 'Camiseta Batman', 27.99);
-INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (2, 'vb02', 'Vaso Batman 200 ml.', 7.50);
 INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (3, 'vb03', 'Vaso Batman 500 ml.', 11.00);
 INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (5, 'vb04', 'Camiseta Hulk MD', 25.99);
 INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (8, 'vb07', 'Lampara Spiderman led', 40.00);
@@ -383,6 +383,8 @@ INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (
 INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (10, 'vb09', 'Vaso Mario Bross 250 ml', 2.50);
 INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (11, 'vb10', 'Lampara Mario Bross', 4.50);
 INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (12, 'vb11', 'Jarro Iron Man', 17.00);
+INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (13, 'vb12', 'Guante Hulk', 25.00);
+INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (2, 'vb02', 'Vaso Batman 200 ml.', 7.50);
 
 
 --
@@ -394,12 +396,13 @@ INSERT INTO public.productos (productoid, codigo, nombre, preciounidad) VALUES (
 INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (9, 6, 0, 0, 0);
 INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (10, 2, 0, 0, 0);
 INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (13, 8, 0, 0, 0);
-INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (14, 9, 0, 0, 0);
 INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (15, 10, 0, 0, 0);
 INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (16, 11, 0, 0, 0);
 INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (12, 5, 3, 0, 3);
-INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (11, 3, 36, 11, 25);
 INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (17, 12, 0, 0, 0);
+INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (18, 13, 0, 0, 0);
+INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (11, 3, 36, 12, 24);
+INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VALUES (14, 9, 15, 0, 15);
 
 
 --
@@ -408,8 +411,9 @@ INSERT INTO public.stock (stockid, productoid, entradas, salidas, disponible) VA
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.usuarios (usuarioid, nombre, correo, usuario, password, tipo) VALUES (5, 'Christian Fabara', 'cristianfabara@hotmail.com', 'cristianfabara', 'TEZCHomQNZTTwmhTFqrEew==', 2);
 INSERT INTO public.usuarios (usuarioid, nombre, correo, usuario, password, tipo) VALUES (6, 'Viviana Santos', 'vsantos@hotmail.com', 'vsantos', 'TEZCHomQNZTTwmhTFqrEew==', 1);
+INSERT INTO public.usuarios (usuarioid, nombre, correo, usuario, password, tipo) VALUES (5, 'Christian Fabara Riofrio', 'cristianfabara@hotmail.com', 'cristianfabara', 'TEZCHomQNZTTwmhTFqrEew==', 2);
+INSERT INTO public.usuarios (usuarioid, nombre, correo, usuario, password, tipo) VALUES (7, 'Juan Perez', 'jperez@hotmail.com', 'jperez', 'TEZCHomQNZTTwmhTFqrEew==', 1);
 
 
 --
@@ -420,6 +424,7 @@ INSERT INTO public.usuarios (usuarioid, nombre, correo, usuario, password, tipo)
 
 INSERT INTO public.ventas (ventaid, productoid, cliente, cantidad, fecharegistro, preciounitario, preciototal) VALUES (1, '3', 'Viviana Santos', 6, '2022-03-12', 8.00, 48.00);
 INSERT INTO public.ventas (ventaid, productoid, cliente, cantidad, fecharegistro, preciounitario, preciototal) VALUES (2, '3', 'Christian Fabara', 5, '2022-03-12', 12.83, 64.15);
+INSERT INTO public.ventas (ventaid, productoid, cliente, cantidad, fecharegistro, preciounitario, preciototal) VALUES (3, '3', 'Juan Crespo', 1, '2022-03-13', 12.00, 12.00);
 
 
 --
@@ -437,7 +442,7 @@ SELECT pg_catalog.setval('public.catalogos_catalogoid_seq', 12, true);
 -- Name: compras_compraid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.compras_compraid_seq', 7, true);
+SELECT pg_catalog.setval('public.compras_compraid_seq', 8, true);
 
 
 --
@@ -446,7 +451,7 @@ SELECT pg_catalog.setval('public.compras_compraid_seq', 7, true);
 -- Name: productos_productoid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.productos_productoid_seq', 12, true);
+SELECT pg_catalog.setval('public.productos_productoid_seq', 13, true);
 
 
 --
@@ -455,7 +460,7 @@ SELECT pg_catalog.setval('public.productos_productoid_seq', 12, true);
 -- Name: stock_stockid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.stock_stockid_seq', 17, true);
+SELECT pg_catalog.setval('public.stock_stockid_seq', 18, true);
 
 
 --
@@ -464,7 +469,7 @@ SELECT pg_catalog.setval('public.stock_stockid_seq', 17, true);
 -- Name: usuarios_usuarioid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_usuarioid_seq', 6, true);
+SELECT pg_catalog.setval('public.usuarios_usuarioid_seq', 7, true);
 
 
 --
@@ -473,7 +478,7 @@ SELECT pg_catalog.setval('public.usuarios_usuarioid_seq', 6, true);
 -- Name: ventas_ventaid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.ventas_ventaid_seq', 2, true);
+SELECT pg_catalog.setval('public.ventas_ventaid_seq', 3, true);
 
 
 --
@@ -530,7 +535,7 @@ ALTER TABLE ONLY public.ventas
     ADD CONSTRAINT ventaid_pk PRIMARY KEY (ventaid);
 
 
--- Completed on 2022-03-12 23:41:03
+-- Completed on 2022-03-13 02:51:09
 
 --
 -- PostgreSQL database dump complete
